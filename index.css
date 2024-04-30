@@ -43,10 +43,18 @@ header > h2 {
     margin-top: 4rem;
     padding-inline: 2rem;
     padding-block: 0.7rem;
+    background-color: hsl(2, 62%, 74%);
+    color: white;
+    
     border-radius: 8px;
-    border-color: hsl(150, 85%, 78%);
+    border-style: solid;
+    border-color: hsl(150, 85%, 30%);
 
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: weight;
+    font-weight: 600;
+}
+
+#getStartedBtn:hover {
+    transform: scale(1.05);
 }
