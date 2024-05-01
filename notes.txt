@@ -1,0 +1,9 @@
+i need a function that determinines the time frame div that should append the new task div.
+// get time frame 
+// div variable 
+// if time = x, get div a
+// if time = y, get div b
+// if time = z, get div c
+// return selected div to variable
+
+//
