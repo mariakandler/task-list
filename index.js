@@ -35,8 +35,14 @@ function addTaskHtml (title, desc, date){
 
     mainSection.appendChild(taskContainer);
     taskContainer.append(taskH1, taskDesc, taskDate);
+}
 
-    //date - extrair data em texto, comparar e blablabla
+// validanting date
+
+function validateDate (date) {
+    const dueDateString = document.getElementById('dueDate').value;
+    const today = new Date().setHours(0, 0, 0, 0)
+    const beforeToday = 
 }
 
 // new task handler
@@ -44,15 +50,16 @@ document.addEventListener('DOMContentLoaded', function() {
 saveTaskBtn.addEventListener('click', () => {
     const taskTitle = document.getElementById('taskTitle').value;
     const taskDescription = document.getElementById('taskDescription').value;
-    const dueDate = document.getElementById('dueDate').value;
+    const dueDateString = document.getElementById('dueDate').value;
+    const dueDate = new Date(dueDateString + "T00:00:00");
 
     if (mainSection.classList.contains('hidden')) {
         mainSection.classList.remove('hidden');
         addTaskHtml(taskTitle, taskDescription, dueDate);
-        timeFrame(dueDate);
+        getTimeFrame(dueDate)
     } else {
         addTaskHtml(taskTitle, taskDescription, dueDate);
-        timeFrame(dueDate);
+        getTimeFrame(dueDate)
     }
 
     document.getElementById('taskTitle').value = "";
@@ -63,43 +70,26 @@ saveTaskBtn.addEventListener('click', () => {
 })
 
 // time frame handler
-// function timeFrame (due) {
-//     const today = new Date()
-//     const currentDay = today.getDate(); 
-//     const tomorrow = new Date(today);
-//     tomorrow.setDate(currentDay + 1);
+function getTimeFrame (due) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); 
 
-//     if (due.getTime() === today.getTime()) {
-//         console.log("hoje");
-//     } else if (due.getTime() === tomorrow.getTime()) {
-//         console.log("amanhã");
-//     } else {
-//         console.log("depois");
-//     }
-// }
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+  tomorrow.setHours(0, 0, 0, 0); 
 
+  const dueDate = new Date(due);
+  dueDate.setHours(0, 0, 0, 0); 
 
-function timeFrame(due) {
-    const today = new Date();
-    const currentDay = today.getDate();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(currentDay + 1);
+  const todayDiv = document.getElementById('todayDiv');
+  const tomorrowDiv = document.getElementById('tomorrowDiv');
+  const nextDiv = document.getElementById('nextDiv');
 
-    // Verifica se due é uma string e tenta convertê-la para Date
-    if (typeof due === 'string') {
-        due = new Date(due);
-    }
-
-    // Verifica se due é uma data válida
-    if (due instanceof Date && !isNaN(due.getTime())) {
-        if (due.toDateString() === today.toDateString()) {
-            console.log("hoje");
-        } else if (due.toDateString() === tomorrow.toDateString()) {
-            console.log("amanhã");
-        } else {
-            console.log("depois");
-        }
-    } else {
-        console.log("Data inválida");
-    }
+  if (dueDate.getTime() === today.getTime()) {
+    console.log('today');
+  } else if (dueDate.getTime() === tomorrow.getTime()) {
+    console.log('tomorrow');
+  } else {
+    console.log('next');
+}
 }
