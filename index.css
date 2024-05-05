@@ -62,3 +62,23 @@ header > h2 {
 #getStartedBtn:hover {
     transform: scale(1.05);
 }
+
+#main {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    max-width: %;
+    max-height: 100%;
+    background-color: aqua;
+    align-items: center;
+}
+
+#createFirstTaskSec {
+    display: flex;
+    flex-direction: row;
+}

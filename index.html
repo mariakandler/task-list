@@ -27,17 +27,36 @@
       <button id="getStartedBtn" class="themeBtn">get started</button>
     </header>
 
-    <main>
-      <section id="firstTaskSection">
-        <div>
+    <main id="main">
+      <nav>
+        <p>Home screen</p>
+        <p>Calendar</p>
+        <p>Add a new task</p>
+      </nav>
+
+      <section id="createFirstTaskSec">
+        <div id="firstTaskAlert">
           <h1>it seems like you do not have any tasks yet :(</h1>
-          <button id="createTaskBtn" class="themeBtn">
+          <button id="firstTaskBtn" class="themeBtn">
             create your first task
           </button>
         </div>
+
+        <div id="FirstTaskInputsDiv" class="hidden">
+          <label for="taskTitle">title: </label>
+          <input type="text" name="" id="taskTitle" />
+          <br />
+          <label for="taskDescription">description: </label>
+          <input type="text" name="" id="taskDescription" />
+          <br />
+          <label for="dueDate">due date: </label>
+          <input type="date" id="dueDate" />
+          <br />
+          <button id="saveTaskBtn">save</button>
+        </div>
       </section>
 
-      <section id="mainSection" class="hidden">
+      <section id="timeFramesSec" class="hidden">
         <div id="todayDiv">
           <h1>today</h1>
         </div>
@@ -51,20 +70,7 @@
         </div>
       </section>
 
-      <section id="addTaskSection" class="hidden">
-        <div>
-          <label for="taskTitle">title: </label>
-          <input type="text" name="" id="taskTitle" />
-          <br />
-          <label for="taskDescription">description: </label>
-          <input type="text" name="" id="taskDescription" />
-          <br />
-          <label for="dueDate">due date: </label>
-          <input type="date" id="dueDate" />
-          <br />
-          <button id="saveTaskBtn">save</button>
-        </div>
-      </section>
+      <section id="addTaskSection" class="hidden"></section>
     </main>
   </body>
 </html>
